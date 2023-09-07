@@ -16,7 +16,7 @@
 
     - name: Start MYSQL Service
       ansible.builtin.systemd:
-        name: mysqlid
+        name: mysqld
         state: restarted
         enabled: yes
 
