@@ -1,0 +1,12 @@
+[Unit]
+Description=Dispatch Service
+
+[Service]
+User=roboshop
+Environment=CART_ENDPOINT=cart.chandana24.online:8080
+Environment=DB_HOST=mysql.chandana24.online
+ExecStart=/bin/java -jar /app/shipping.jar
+SyslogIdentifier=shipping
+
+[Install]
+WantedBy=multi-user.target

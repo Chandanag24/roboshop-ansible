@@ -1,0 +1,27 @@
+#echo -e "\e[36m<<<<<<<<Install GoLang>>>>>>>>>\e[0m"
+#yum install golang -y
+#func_apppre
+#echo -e "\e[36m<<<<<<<<Install Dependencies>>>>>>>>>\e[0m"
+#go mod init dispatch
+#echo -e "\e[36m<<<<<<<<download dependencies along with updating>>>>>>>>>\e[0m"
+#go get
+#echo -e "\e[35m<<<<<<<<Bulid Service>>>>>>>>>\e[0m"
+#go build
+#func_systemd
+
+
+- name: Install GoLang
+  ansible.builtin.yum:
+    name: golang
+    state: installed
+
+- name: App Pre-requistics
+  ansible.builtin.import_tasks: app-preq.yml
+
+- name: Download GoLang Dependencies
+  ansible.builtin.shell: go get
+  args:
+    chdir: /app
+
+- name: Systemd Setup
+  ansible.builtin.import_tasks: systemd-setup.yml
