@@ -9,5 +9,5 @@
     state: installed
 
 - name: Load schema
-  ansible.builtin.shell: mongo --host mongodb-dev.chandana24.online </app/schema/{{component}}.js
+  ansible.builtin.shell: mongo --host mongodb-dev.chandana24.online </app/schema/{{component_name}}.js
 
